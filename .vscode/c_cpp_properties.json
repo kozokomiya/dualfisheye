@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/gstreamer-1.0",
+                "/usr/include/glib-2.0",
+                "/usr/lib/arm-linux-gnueabihf/glib-2.0/include/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu18",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}
