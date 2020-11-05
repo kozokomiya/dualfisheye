@@ -12,12 +12,16 @@ export GST_DEBUG="1,dualfisheye:6"
 
 # Launch dualfisheye test
 gst-launch-1.0 -v \
-  videotestsrc ! \
-  video/x-raw,format=RGBx,width=1280,height=720,framerate=30/1 ! \
+  udpsrc port=18011 ! \
+  "application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264" ! \
+  rtph264depay ! \
+  avdec_h264 ! \
   videoconvert ! \
-  dualfisheye dispsize=TRUE borderwidth=16 bordercolor="#008888" equirectangular=TRUE ! \
-  videoconvert ! \
-  omxh264enc ! \
-  rtph264pay pt=96 ! \
-  udpsink host=192.168.11.26 port=9001
+  queue ! \
+  vp8enc ! \
+  rtpvp8pay pt=96 ! \
+  udpsink host=10.0.1.11 port=8013
 
+  #openh264dec ! \
+  #dualfisheye dispsize=TRUE borderwidth=30 bordercolor="#00FF00" equirectangular=FALSE ! \
+  #videoconvert ! \
