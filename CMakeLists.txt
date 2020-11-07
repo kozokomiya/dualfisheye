@@ -13,8 +13,8 @@ pkg_check_modules(GSTREAMER_VIDEO REQUIRED gstreamer-video-1.0)
 
 # search library for opencv
 find_package(OpenCV)
-#include_directories(${OPENCV_INCLUDE_DIRS})
-#link_directories(${OPENCV_LIBRARY_DIRS})
+#include_directories(${OpenCV_INCLUDE_DIRS})
+#link_directories(${OpenCV_LIBRARY_DIRS})
 
 # target
 add_library(${PROJ_NAME} SHARED gstdualfisheye.cpp)
@@ -23,7 +23,7 @@ add_library(${PROJ_NAME} SHARED gstdualfisheye.cpp)
 set(INCLUDE_DIRS 
     ${GSTREAMER_INCLUDE_DIRS} 
     ${GSTREAMER_VIDEO_INCLUDE_DIRS} 
-    ${OPENCV_INCLUDE_DIRS}
+    ${OpenCV_INCLUDE_DIRS}
 )
 include_directories("${INCLUDE_DIRS}")
 
@@ -31,6 +31,6 @@ include_directories("${INCLUDE_DIRS}")
 set(LIBRARIES 
     ${GSTREAMER_LIBRARIES} 
     ${GSTREAMER_VIDEO_LIBRARIES} 
-    ${OPENCV_LIBRARIES}
+    ${OpenCV_LIBRARIES}
 )
 target_link_libraries(${PROJ_NAME} ${LIBRARIES})
