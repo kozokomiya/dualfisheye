@@ -11,8 +11,8 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GSTREAMER REQUIRED gstreamer-1.0)
 pkg_check_modules(GSTREAMER_VIDEO REQUIRED gstreamer-video-1.0)
 
-# search library with pkg-config for opencv
-pkg_check_modules(OPENCV REQUIRED opencv)
+# search library for opencv
+find_package(OpenCV)
 #include_directories(${OPENCV_INCLUDE_DIRS})
 #link_directories(${OPENCV_LIBRARY_DIRS})
 
