@@ -1,3 +1,6 @@
 build/
 *.o
 *.so
+.vscode/
+xmap.npy
+ymap.npy

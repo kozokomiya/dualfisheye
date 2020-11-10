@@ -58,8 +58,8 @@ static gboolean gst_dualfisheye_stop (GstBaseTransform * trans);
 static gboolean gst_dualfisheye_set_info (GstVideoFilter * filter,
     GstCaps * incaps, GstVideoInfo * in_info, GstCaps * outcaps,
     GstVideoInfo * out_info);
-static GstFlowReturn gst_dualfisheye_transform_frame (GstVideoFilter * filter,
-    GstVideoFrame * inframe, GstVideoFrame * outframe);
+// static GstFlowReturn gst_dualfisheye_transform_frame (GstVideoFilter * filter,
+//     GstVideoFrame * inframe, GstVideoFrame * outframe);
 static GstFlowReturn gst_dualfisheye_transform_frame_ip (GstVideoFilter *
     filter, GstVideoFrame * frame);
 
@@ -89,16 +89,12 @@ enum
 /* pad templates */
 
 /* FIXME: add/remove formats you can handle */
-// #define VIDEO_SRC_CAPS \
-//     GST_VIDEO_CAPS_MAKE("{ I420, Y444, Y42B, UYVY, RGBA }")
-#define VIDEO_SRC_CAPS \
-    GST_VIDEO_CAPS_MAKE("{ RGBx }")
+// #define VIDEO_SRC_CAPS GST_VIDEO_CAPS_MAKE("{ I420, Y444, Y42B, UYVY, RGBA }")
+#define VIDEO_SRC_CAPS GST_VIDEO_CAPS_MAKE("{ RGBx }")
 
 /* FIXME: add/remove formats you can handle */
-// #define VIDEO_SINK_CAPS \
-//     GST_VIDEO_CAPS_MAKE("{ I420, Y444, Y42B, UYVY, RGBA }")
-#define VIDEO_SINK_CAPS \
-    GST_VIDEO_CAPS_MAKE("{ RGBx }")
+// #define VIDEO_SINK_CAPS GST_VIDEO_CAPS_MAKE("{ I420, Y444, Y42B, UYVY, RGBA }")
+#define VIDEO_SINK_CAPS GST_VIDEO_CAPS_MAKE("{ RGBx }")
 
 
 /* class initialization */
@@ -225,7 +221,7 @@ gst_dualfisheye_init (GstDualfisheye * self)
     GST_DEBUG_OBJECT (self, "load xmap size=(%dx%d)", rows, cols);
     self->xmap = mat.clone();
   } 
-  catch (std::runtime_error e) {
+  catch (const std::runtime_error &e) {
     GST_DEBUG_OBJECT (self, "Can't read 'xmap.npy'");
     exit(1);
   }
@@ -235,7 +231,7 @@ gst_dualfisheye_init (GstDualfisheye * self)
     GST_DEBUG_OBJECT (self, "load ymap size=(%dx%d)", rows, cols);
     self->ymap = mat.clone();
   } 
-  catch (std::runtime_error e) {
+  catch (const std::runtime_error &e) {
     GST_DEBUG_OBJECT (self, "Can't read 'ymap.npy'");
     exit(1);
   }
@@ -397,17 +393,17 @@ gst_dualfisheye_set_info (GstVideoFilter * filter, GstCaps * incaps,
   return TRUE;
 }
 
-/* transform */
-static GstFlowReturn
-gst_dualfisheye_transform_frame (GstVideoFilter * filter,
-    GstVideoFrame * inframe, GstVideoFrame * outframe)
-{
-  GstDualfisheye *self = GST_DUALFISHEYE (filter);
-
-  GST_DEBUG_OBJECT (self, "transform_frame");
-
-  return GST_FLOW_OK;
-}
+// /* transform */
+// static GstFlowReturn
+// gst_dualfisheye_transform_frame (GstVideoFilter * filter,
+//     GstVideoFrame * inframe, GstVideoFrame * outframe)
+// {
+//   GstDualfisheye *self = GST_DUALFISHEYE (filter);
+//
+//   GST_DEBUG_OBJECT (self, "transform_frame");
+//
+//   return GST_FLOW_OK;
+// }
 
 static GstFlowReturn
 gst_dualfisheye_transform_frame_ip (GstVideoFilter * filter,
