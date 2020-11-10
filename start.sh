@@ -5,7 +5,7 @@ export V_PORT=8013                      # Video UDP PORT
 export A_PORT=8003                      # Audio UDP PORT
 
 export GST_PLUGIN_PATH="./build:${GST_PLUGIN_PATH}"
-export GST_DEBUG="1,dualfisheye:6"
+export GST_DEBUG="1,dualfisheye:5"
 # DEBUG_LEVEL  1=ERROR, 2=WARNING, 3=FIXME, 4=INFO, 5=DEBUG, 6=LOG, 7=TRACE
 
 # force cache clear

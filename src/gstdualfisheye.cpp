@@ -415,7 +415,7 @@ gst_dualfisheye_transform_frame_ip (GstVideoFilter * filter,
   guint8 *frame_data = (guint8 *) GST_VIDEO_FRAME_PLANE_DATA(frame, 0);
   cv::Mat mat(height, width, CV_8UC4, frame_data);
 
-  GST_DEBUG_OBJECT (self, "transform_frame_ip");
+  GST_LOG_OBJECT (self, "transform_frame_ip");
   if (self->equirectangular) {
     equirectangular(self, mat);
   }
