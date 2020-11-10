@@ -20,7 +20,9 @@ gst-launch-1.0 -v \
   rtph264depay ! \
   avdec_h264 ! \
   videoconvert ! \
+  dualfisheye ! \
   queue ! \
+  videoconvert ! \
   vp8enc ! \
   rtpvp8pay pt=96 ! \
   udpsink host=$JANUS_SERVER port=$V_PORT
