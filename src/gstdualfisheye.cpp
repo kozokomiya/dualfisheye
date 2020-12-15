@@ -90,11 +90,11 @@ enum
 
 /* FIXME: add/remove formats you can handle */
 // #define VIDEO_SRC_CAPS GST_VIDEO_CAPS_MAKE("{ I420, Y444, Y42B, UYVY, RGBA }")
-#define VIDEO_SRC_CAPS GST_VIDEO_CAPS_MAKE("{ RGBx }")
+#define VIDEO_SRC_CAPS GST_VIDEO_CAPS_MAKE("{ RGBx, RGBA }")
 
 /* FIXME: add/remove formats you can handle */
 // #define VIDEO_SINK_CAPS GST_VIDEO_CAPS_MAKE("{ I420, Y444, Y42B, UYVY, RGBA }")
-#define VIDEO_SINK_CAPS GST_VIDEO_CAPS_MAKE("{ RGBx }")
+#define VIDEO_SINK_CAPS GST_VIDEO_CAPS_MAKE("{ RGBx, RGBA }")
 
 
 /* class initialization */

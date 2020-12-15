@@ -1,5 +1,5 @@
 # Project Name
-project('gstdualfisheye', 'cpp')
+project('gstdualfisheye', 'cpp', default_options : ['cpp_std=c++11'])
 
 plugin_c_args = []
 
