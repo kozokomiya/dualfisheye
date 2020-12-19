@@ -4,7 +4,7 @@ if [ "$(uname)" == 'Darwin' ]; then   # Mac Case
   export CAMERA='avfvideosrc device-index=1 !'
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then  # Linux Case
   if [[ $(uname -a) == *raspberry* ]]; then   # Raspberry Pi case
-    export CAMERA='v4l2src device=/dev/video0 ! omxjpegdec !'
+    export CAMERA='v4l2src device=/dev/video0 ! omxmjpegdec !'
   else
     export CAMERA='v4l2src device=/dev/video0 ! jpegdec !'
   fi
