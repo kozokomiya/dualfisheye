@@ -23,7 +23,7 @@ cd dualfisheye
 ### sample image playback for test
 
 ```
-./test.sh
+./testsrc.sh
 ```
 
 Please check the script for more information.
